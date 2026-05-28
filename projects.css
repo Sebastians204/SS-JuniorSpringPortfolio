@@ -1,86 +1,120 @@
 /* =========================
-   GLOBAL / RESET....
+   FONTS
 ========================= */
-* {
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+ 
+/* =========================
+   VARIABLES
+========================= */
+:root {
+  --card-bg:      rgba(248, 249, 252, 0.84);
+  --card-border:  rgba(131, 147, 193, 0.32);
+  --deep:         #1e2330;
+  --mid:          #4a5268;
+  --muted:        #8890a8;
+  --steel:        #7a8ab0;
+  --accent:       #6688cc;
+  --light:        #dde6f5;
+  --radius-sm:    8px;
+  --radius-md:    14px;
+  --radius-lg:    20px;
 }
-
-body {
+ 
+/* =========================
+   GLOBAL / RESET
+========================= */
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
-  font-family: 'Montserrat', Arial, sans-serif;
-  background-color: #9599a9;
-  color: #cce4de;
+  padding: 0;
+}
+ 
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  background-color: #888ea0;
   background-image: url("starry_sun.jpg");
   background-size: cover;
   background-repeat: repeat-y;
   background-attachment: fixed;
+  color: var(--deep);
+  line-height: 1.7;
 }
-
+ 
 /* =========================
    NAVBAR
 ========================= */
 .navbar {
-  background-color: #4d5763;
-  padding: 1em 2em;
+  background-color: rgba(30, 35, 48, 0.90);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 1em 2.5em;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(131, 147, 193, 0.18);
 }
-
+ 
 .navbar-left img {
-  height: 35px;
+  height: 32px;
+  opacity: 0.9;
 }
-
+ 
 .navbar-right {
   list-style: none;
   display: flex;
-  gap: 2em;
-  margin: 0;
-  padding: 0;
+  gap: 2.2em;
 }
-
+ 
 .navbar-right a {
-  color: rgb(161, 203, 225);
+  color: var(--steel);
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 400;
+  font-size: 0.9em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
 }
-
+ 
 .navbar-right a:hover {
-  color: #cae2b7;
-  font-size:larger
+  color: var(--light);
 }
+ 
 .navbar-right a:visited {
-    color: #65a375;
+  color: var(--muted);
 }
-
-
+ 
 /* =========================
    PAGE LAYOUT
 ========================= */
 .home-card {
-  max-width: 1200px;
-  margin: 2em auto;
-  padding: 1em;
+  max-width: 1100px;
+  margin: 2.5em auto;
+  padding: 0 1.5em;
 }
-
+ 
 /* =========================
    CARDS
 ========================= */
-.resource-card {
-  background-color: rgba(40, 51, 65, 0.95);
+.resource-card,
+.CFU {
+  background-color: var(--card-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   margin: 2em auto;
-  padding: 1.5em;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(47, 61, 83, 0.08);
+  padding: 2em 2.2em;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--card-border);
+  color: var(--deep);
 }
-
-.CFU{
-  background-color: rgba(40, 63, 95, 0.95);
-  margin: 2em auto;
-  padding: 1.5em;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(47, 64, 83, 0.08);
+ 
+.CFU {
+  border-left: 3px solid var(--accent);
 }
+ 
 /* =========================
    BIO SECTION
 ========================= */
@@ -89,26 +123,57 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  padding: 1em 0 0.5em;
 }
-
+ 
 .bio-pic img {
-  width: 150px;
-  height: 150px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
-  border: 3px solid #343256;
+  border: 3px solid var(--steel);
   object-fit: cover;
+  margin-bottom: 1em;
 }
-
+ 
 .bio-text h1 {
-  margin-bottom: 0.2em;
+  font-family: 'Lora', serif;
+  font-weight: 500;
+  font-size: 2em;
+  color: var(--deep);
+  margin-bottom: 0.15em;
 }
-
+ 
 .bio-text h4 {
+  font-weight: 300;
+  color: var(--mid);
+  font-size: 1em;
   margin-top: 0;
-  font-weight: normal;
-  color: #9797a7;
 }
-
+ 
+/* =========================
+   HEADINGS (global)
+========================= */
+h2, h3 {
+  font-family: 'Lora', serif;
+  font-weight: 500;
+  color: var(--deep);
+}
+ 
+h2 {
+  font-size: 1.3em;
+  margin-bottom: 0.5em;
+}
+ 
+h3 {
+  font-size: 1.1em;
+  margin-bottom: 0.4em;
+}
+ 
+p {
+  color: var(--mid);
+  font-size: 0.95em;
+}
+ 
 /* =========================
    PROJECT LAYOUT
 ========================= */
@@ -117,68 +182,82 @@ body {
   gap: 1.5em;
   align-items: flex-start;
 }
-
+ 
 .project iframe {
   flex: 2;
   min-width: 320px;
   height: 450px;
   border: none;
   background-color: white;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
 }
-
+ 
 .reflection {
   flex: 1;
-  background-color: rgba(255, 255, 255, 0.04);
-  padding: 1em;
-  border-radius: 8px;
+  background-color: rgba(210, 220, 240, 0.42);
+  padding: 1.2em 1.4em;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--card-border);
 }
-
+ 
 .reflection h3 {
-  margin-top: 0;
-  color: #aacbff;
+  color: var(--accent);
 }
-
+ 
 .reflection p {
-  font-size: 0.95em;
-  color: #dddddd;
+  font-size: 0.93em;
+  color: var(--mid);
 }
-
+ 
 /* =========================
    LINKS / ICONS
 ========================= */
 .skill-images {
   display: flex;
   justify-content: center;
-  gap: 1.5em;
+  flex-wrap: wrap;
+  gap: 1.2em;
   margin-top: 1em;
 }
-
+ 
 .picture {
   transition: transform 0.2s ease;
 }
-
+ 
 .picture:hover {
-  transform: scale(1.05);
+  transform: translateY(-3px);
 }
-
+ 
 .link-pic {
-  height: 80px;
-  width: 80px;
-  border-radius: 10px;
-  border: 2px solid rgb(131, 147, 193);
+  height: 78px;
+  width: 78px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--steel);
   object-fit: cover;
 }
-
+ 
 /* =========================
    FOOTER
 ========================= */
 footer {
   text-align: center;
-  font-size: 0.85em;
-  color: #5070db;
+  font-size: 0.82em;
+  color: var(--muted);
+  padding: 2em 1em;
 }
-
+ 
+/* =========================
+   MISC UTILITIES
+========================= */
+.sixseven {
+  text-align: center;
+}
+ 
+.pochita {
+  width: 50px;
+  height: 65px;
+}
+ 
 /* =========================
    RESPONSIVE
 ========================= */
@@ -186,30 +265,33 @@ footer {
   .project {
     flex-direction: column;
   }
-
+ 
   .project iframe {
     width: 100%;
     min-width: 0;
     height: 350px;
   }
 }
-
+ 
 @media (max-width: 600px) {
   .navbar {
     flex-direction: column;
-    gap: 1em;
+    gap: 0.8em;
+    padding: 1em 1.5em;
   }
-
+ 
   .navbar-right {
     flex-wrap: wrap;
     justify-content: center;
+    gap: 1.2em;
   }
-}
-
-.sixseven{
-  text-align: center;
-}
-.pochita{
-  width:50px;
-  height:65px;
+ 
+  .home-card {
+    padding: 0 1em;
+  }
+ 
+  .resource-card,
+  .CFU {
+    padding: 1.4em 1.5em;
+  }
 }
